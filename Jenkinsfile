@@ -4,4 +4,8 @@ node('linux') {
     stage('Test') {
         sh "env"
     }
+
+    stage('Unit Tests') {
+        sh "ant -f test.xml -v"
+    }
 }
