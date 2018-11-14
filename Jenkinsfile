@@ -1,7 +1,7 @@
 properties([pipelineTriggers([githubPush()])])
 pipeline {
     agent any
-
+    
     stages {
         stage('Test') {
             steps{
@@ -24,9 +24,7 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                withAWS(region:'eu-west-1') {
-                    sh 'aws s3 cp /workspace/java-pipeline/dist/rectangle-*.jar s3://seis665-assignment9jenkins/'
-                }
+                sh "aws s3 cp /workspace/java-pipeline/dist/rectangle-*.jar s3://seis665-assignment9jenkins/"
             }
         }
     }
