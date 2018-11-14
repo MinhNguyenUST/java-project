@@ -19,6 +19,8 @@ node('linux') {
     }
 
     stage('Report') {
-        sh 'aws cloudformation describe-stack-resources --region us-east-1 --stack-name jenkins-stack'
+        withAWS(credentials:'AWS Access Key: AKIAJ5OD2RIINNISIIBA, AWS Secret Key: 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') {
+            sh 'aws cloudformation describe-stack-resources --region us-east-1 --stack-name jenkins-stack'
+        }
     }
 }
