@@ -24,7 +24,9 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                sh 'aws s3 cp /workspace/java-pipeline/dist/rectangle-*.jar s3://seis665-assignment9jenkins/'
+                withAWS(region:'eu-west-1') {
+                    sh 'aws s3 cp /workspace/java-pipeline/dist/rectangle-*.jar s3://seis665-assignment9jenkins/'
+                }
             }
         }
     }
