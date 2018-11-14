@@ -3,12 +3,6 @@ pipeline {
     agent { label 'linux'}
     
     stages {
-        stage('Test') {
-            steps{
-                sh "env"
-            }
-        }
-
         stage('Unit Tests') {
             steps {
                 sh 'ant -f test.xml -v'
@@ -24,8 +18,10 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                sh "aws s3 cp /workspace/java-pipeline/dist/rectangle-*.jar s3://seis665-assignment9jenkins/"
+                sh 'aws s3 cp /workspace/java-pipeline/dist/rectangle-*.jar s3://seis665-assignment9jenkins/'
             }
         }
+
+       
     }
 }
