@@ -24,7 +24,7 @@ pipeline {
 
         stage('Report') {
             steps {
-                withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: 'aws']]) {
+                withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: 'cb057c46-4b85-4388-8051-fbcacde12190']]) {
                     sh 'aws cloudformation describe-stack-resources --region us-east-1 --stack-name jenkins-stack'
                 }
             }
