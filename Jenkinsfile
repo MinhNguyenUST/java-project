@@ -24,9 +24,7 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                withAwsCli(defaultRegion: 'us-east-1') {
-                    sh "aws s3 cp /workspace/java-pipeline/dist/rectangle-*.jar s3://seis665-assignment9jenkins/"
-                }
+                sh "aws s3 cp /workspace/java-pipeline/dist/rectangle-*.jar s3://seis665-assignment9jenkins/"
             }
         }
     }
