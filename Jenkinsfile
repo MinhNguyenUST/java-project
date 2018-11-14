@@ -1,7 +1,6 @@
 properties([pipelineTriggers([githubPush()])])
 pipeline {
     agent any
-    git url: 'https://github.com/MinhNguyenUST/java-project.git', branch: 'master'
     stage('Test') {
         sh "env"
     }
