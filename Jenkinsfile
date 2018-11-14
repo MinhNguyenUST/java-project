@@ -1,6 +1,6 @@
 properties([pipelineTriggers([githubPush()])])
 pipeline {
-    agent any
+    agent { label 'linux'}
     
     stages {
         stage('Test') {
