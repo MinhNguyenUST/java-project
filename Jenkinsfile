@@ -23,7 +23,7 @@ pipeline {
 
         stage('Report') {
             steps {
-                withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: '503776f4-4a18-4e90-a3e7-8d3dbf5c11a7']]) {
+                withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: '09233a43-8009-46e1-b4c2-814c40c9a5b1']]) {
                     sh 'aws cloudformation describe-stack-resources --region us-east-1 --stack-name jenkins'
                 }
             }
